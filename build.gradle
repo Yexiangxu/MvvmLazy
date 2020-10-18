@@ -1,0 +1,52 @@
+buildscript {
+//    apply from: 'versions.gradle'
+    ext.kotlin_version = '1.3.72'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.10'
+    }
+}
+
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+//subprojects{
+//    afterEvaluate {
+//        android{
+//            //resourcePrefix约束资源前缀，只能限定Xml资源（不同model命名相同造成资源冲突）
+//            resourcePrefix "${project.name}_"
+//        }
+//    }
+//}
+
+ext {
+    isModule=false //设置false即不是将model作为单独应用
+    //base
+    minSdkVersion = 21
+    targetSdkVersion = 29
+    compileSdkVersion = 29
+    buildToolsVersion = '29.0.3'
+
+    version = [
+            arouterCompilerSdkVersion: "1.2.2"
+    ]
+
+    dependencies = [
+            "router-compiler"  : "com.alibaba:arouter-compiler:${version["arouterCompilerSdkVersion"]}"
+            //这里省略一部分代码
+    ]
+}

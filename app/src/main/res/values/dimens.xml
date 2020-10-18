@@ -1,0 +1,17 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dp_9">9dp</dimen>
+    <dimen name="dp_5">5dp</dimen>
+    <!--    <dimen name="bottom_nav_size">12dp</dimen>-->
+
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="sp_12">12sp</dimen>
+    <dimen name="sp_14">14sp</dimen>
+
+    <!-- 设置 BottomNavigationView  -->
+    <dimen name="design_bottom_navigation_active_text_size">@dimen/sp_14</dimen>
+    <dimen name="design_bottom_navigation_text_size">@dimen/sp_12</dimen>
+    <dimen name="bottom_nav_iconsize">24dp</dimen>
+    <dimen name="design_bottom_navigation_height">@dimen/bottom_nav_height</dimen>
+
+</resources>
