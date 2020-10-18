@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initNavigation() {
+        bottomNavigation.itemIconTintList = null//设置自己图片(不设置会系统着色)
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
