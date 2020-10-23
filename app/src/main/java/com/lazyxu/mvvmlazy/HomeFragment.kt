@@ -1,6 +1,7 @@
 package com.lazyxu.mvvmlazy
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -48,7 +49,8 @@ class HomeFragment : Fragment() {
         }
         mainTopAdapter.setNewInstance(images)
         mainTopAdapter.setOnItemClickListener { adapter, view, position ->
-            Toast.makeText(activity, "点击了$position", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, "头部点击了$position", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(activity,ActivityMiniReader::class.java))
         }
         mainViewPager.adapter = HomePageAdapter(childFragmentManager, mDataList)
         initMagicIndicator()

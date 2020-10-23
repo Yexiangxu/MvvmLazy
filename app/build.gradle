@@ -27,6 +27,8 @@ android {
             arg("AROUTER_MODULE_NAME", project.getName())
         }
     }
+//    buildConfigField "String", "APP_ID_2", "\"${APP_ID_2_VALUE}\""
+
     buildFeatures {
         dataBinding = true
     }
@@ -54,9 +56,9 @@ android {
     buildTypes {
         debug {
             // 代码混淆
-            minifyEnabled true
+            minifyEnabled false
             // 移除无用的resource文件
-            shrinkResources true
+            shrinkResources false
 //            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

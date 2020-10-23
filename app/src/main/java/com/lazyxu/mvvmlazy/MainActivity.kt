@@ -1,11 +1,10 @@
 package com.lazyxu.mvvmlazy
 
+import android.graphics.drawable.Animatable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.forEach
 import androidx.core.view.forEachIndexed
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -60,6 +59,10 @@ class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         bottomNavigation.menu.forEachIndexed { index, _item ->
             if (item.itemId == _item.itemId) {
+                val drawable = item.icon
+                if (drawable is Animatable) {
+                    (drawable as Animatable).start()
+                }
                 setFragmentPosition(index)
             }
         }

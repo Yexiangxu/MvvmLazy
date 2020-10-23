@@ -9,9 +9,15 @@
     <dimen name="sp_14">14sp</dimen>
     <dimen name="sp_6">6sp</dimen>
     <dimen name="bottom_nav_iconsize">20dp</dimen>
-    <!-- 设置 BottomNavigationView  -->
-    <dimen name="design_bottom_navigation_active_text_size">@dimen/sp_6</dimen>
-    <dimen name="design_bottom_navigation_text_size">@dimen/sp_6</dimen>
-    <dimen name="design_bottom_navigation_height">@dimen/bottom_nav_height</dimen>
+    <dimen name="bottom_nav_textsize_normal">14sp</dimen>
+    <dimen name="bottom_nav_textsize_pressed">14sp</dimen>
+    <dimen name="bottom_nav_height">48dp</dimen>
+
+    <!-- 设置修改系统 BottomNavigationView 属性
+     <dimen name="design_bottom_navigation_margin">10dp</dimen> 设置图标距离BottomNavigationView
+     <dimen name="design_bottom_navigation_height">@dimen/bottom_nav_height</dimen>
+    -->
+
+
 
 </resources>

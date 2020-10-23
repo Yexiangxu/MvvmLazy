@@ -16,4 +16,13 @@
         <item name="contentInsetStartWithNavigation">0dp</item>
     </style>
 
+    <style name="NavTabSelectedStyle" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">@dimen/bottom_nav_textsize_pressed</item>
+        <item name="contentInsetStart">20dp</item>
+        <item name="contentInsetStartWithNavigation">20dp</item>
+    </style>
+
+    <style name="NavTabNormalStyle" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">@dimen/bottom_nav_textsize_normal</item>
+    </style>
 </resources>

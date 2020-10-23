@@ -17,17 +17,20 @@
             app:itemBackground="@null" 屏蔽水波纹
             用design_bottom_navigation_height设置高度不要用layout_height
             app:itemIconSize="12dp" 设置图标大小
+
     -->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/bottom_nav_height"
         android:background="@color/bottom_nav_bg"
+        app:itemIconSize="@dimen/bottom_nav_iconsize"
+        app:itemTextAppearanceActive="@style/NavTabSelectedStyle"
+        app:itemTextAppearanceInactive="@style/NavTabNormalStyle"
+
         app:itemTextColor="@color/bottom_nav_text"
         app:labelVisibilityMode="labeled"
-        app:itemIconSize="@dimen/bottom_nav_iconsize"
-
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
