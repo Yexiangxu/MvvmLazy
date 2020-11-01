@@ -3,3 +3,4 @@ include ':user'
 include ':base_common'
 include ':app'
 rootProject.name = "MvvmLazy"
+//测试提交记录插入某个时间段
