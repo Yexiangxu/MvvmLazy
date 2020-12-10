@@ -2,20 +2,48 @@ package com.lazyxu.mvvmlazy
 
 import android.app.ActivityManager
 import android.content.Context
+import android.content.IntentFilter
+import android.net.Uri
 import android.os.Build
+import android.util.Log
 import com.lazyxu.base.base.BaseApplication
 import com.lazyxu.base.utils.LogUtils
+import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.properties.Delegates
 
 class App : BaseApplication() {
     companion object {
         var instance: App by Delegates.notNull()
-    }
 
+
+        private var coldStartOneTimeCase: AtomicBoolean = AtomicBoolean(true)
+        fun getColdStartState():Boolean{
+            return coldStartOneTimeCase.get()
+        }
+        /*在MainFragment 触发冷启动上报之前 全部为冷启动，在之后全部为热启*/
+        fun consumeColdStartState(): Boolean {
+            return coldStartOneTimeCase.getAndSet(false)
+        }
+    }
+    private var appStateReceiver: BootReceiver? = null
+    override fun onTerminate() {
+        super.onTerminate()
+        if (appStateReceiver != null) {
+            unregisterReceiver(appStateReceiver)
+        }
+    }
     override fun onCreate() {
         super.onCreate()
         instance = this
         //注册activity生命周期
+
+        appStateReceiver = BootReceiver()
+        val filter = IntentFilter()
+        filter.addAction("android.intent.action.PACKAGE_ADDED")
+        filter.addAction("android.intent.action.PACKAGE_REMOVED")
+        filter.addDataScheme("package")
+        this.registerReceiver(appStateReceiver, filter)
+        Log.d("BootReceiverTag", "注册广播")
 
     }
     /**

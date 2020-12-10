@@ -1,6 +1,8 @@
 package com.lazyxu.base.base
 
 import android.content.Intent
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.launcher.ARouter
@@ -35,6 +37,13 @@ abstract class BaseActivity : AppCompatActivity() {
         mBackDrawable = headToolbar.backDrawable
         mToolbarTitleColor = headToolbar.toolbarTitleColor
     }
-
+    override fun getResources(): Resources? {
+        // 字体大小不跟随系统
+        val res: Resources = super.getResources()
+        val config = Configuration()
+        config.setToDefaults()
+        res.updateConfiguration(config, res.displayMetrics)
+        return res
+    }
     abstract fun headToolbar(): HeadToolbar
 }

@@ -2,46 +2,91 @@ package com.lazyxu.mvvmlazy
 
 import android.graphics.drawable.Animatable
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.forEachIndexed
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.lazyxu.base.BuildConfig
+import com.lazyxu.mvvmlazy.utils.ScreenStatusController
+import com.lazyxu.mvvmlazy.utils.ScreenStatusListener
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-/**
- * Created by luo on 2019/7/3.
- */
 class MainActivity : AppCompatActivity() {
     private var wallpaperFragment: HomeFragment? = null
     private var musicFragment: MineFragment? = null
-    private var myFragment: HomeFragment? = null
-    private var myFragment4: HomeFragment? = null
-    private var myFragment5: HomeFragment? = null
     private var mFragments: MutableList<Fragment> = mutableListOf()
     private var lastIndex = 0
+
+    private var mScreenStatusController: ScreenStatusController? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initView()
+
+        debug {
+            Log.i("MainActivityTest", "debug")
+        }
+
+
     }
+
+    //声明：
+    private fun debug(code: () -> Unit) {
+        if (BuildConfig.DEBUG) {
+            code()
+        }
+
+    }
+
+
+
 
     private fun initView() {
         wallpaperFragment = HomeFragment()
         musicFragment = MineFragment()
-        myFragment = HomeFragment()
-        myFragment4 = HomeFragment()
-        myFragment5 = HomeFragment()
         mFragments.add(wallpaperFragment!!)
-        mFragments.add(wallpaperFragment!!)
-        mFragments.add(wallpaperFragment!!)
-        mFragments.add(wallpaperFragment!!)
-        mFragments.add(wallpaperFragment!!)
+        mFragments.add(musicFragment!!)
+        mFragments.add(musicFragment!!)
+        mFragments.add(musicFragment!!)
+        mFragments.add(musicFragment!!)
         initNavigation()
         setFragmentPosition(0)
 
+        initScreenListener()
+
+
     }
 
+    private fun initScreenListener() {
+
+        mScreenStatusController = ScreenStatusController(this)
+        mScreenStatusController?.setScreenStatusListener(object : ScreenStatusListener {
+            override fun onScreenOff() {
+                Log.i("ScreenTest", "onScreenOff")
+            }
+
+            override fun onScreenOn() {
+                Log.i("ScreenTest", "onScreenOn")
+            }
+
+            override fun userPresent() {
+                Log.i("ScreenTest", "userPresent")
+            }
+        })
+        mScreenStatusController?.startListen()
+
+    }
+
+
+    override fun onDestroy() {
+
+        mScreenStatusController?.stopListen()
+        super.onDestroy()
+    }
     /**
      * 换肤 可根据不同节日等动态设置底部tab
      */
@@ -92,5 +137,5 @@ class MainActivity : AppCompatActivity() {
         } catch (e: IndexOutOfBoundsException) {
         }
     }
-
+    private val clickListener = View.OnClickListener { }
 }

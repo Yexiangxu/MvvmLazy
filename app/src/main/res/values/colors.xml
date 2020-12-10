@@ -6,6 +6,6 @@
 
 
     <color name="bottom_nav_bg">#ffffffff</color>
-    <color name="bottom_nav_p">#333333</color>
-    <color name="bottom_nav">#7D333333</color>
+    <color name="bottom_nav_p">#6200EE</color>
+    <color name="bottom_nav">#abadb3</color>
 </resources>

@@ -32,9 +32,9 @@ class HomePagerFragment : Fragment() {
             R.drawable.default_home4,
             R.drawable.default_home1)
 
-    private val homePagerAdapter by lazy {
-        HomeTopAdapter()
-    }
+//    private val homePagerAdapter by lazy {
+//        HomeTopAdapter()
+//    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_homepager, container, false)
@@ -42,14 +42,14 @@ class HomePagerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        rvHomePager.apply {
-            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-            adapter = homePagerAdapter
-
-        }
-        homePagerAdapter.setNewInstance(images)
-        homePagerAdapter.setOnItemClickListener { adapter, view, position ->
-            Toast.makeText(activity, "点击了$position", Toast.LENGTH_SHORT).show()
-        }
+//        rvHomePager.apply {
+//            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+//            adapter = homePagerAdapter
+//
+//        }
+//        homePagerAdapter.setNewInstance(images)
+//        homePagerAdapter.setOnItemClickListener { adapter, view, position ->
+//            Toast.makeText(activity, "点击了$position", Toast.LENGTH_SHORT).show()
+//        }
     }
 }

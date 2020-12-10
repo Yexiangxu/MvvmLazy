@@ -9,9 +9,12 @@ import com.lazyxu.base.router.RouterUrl
 
 @Route(path = RouterUrl.Main.FILM)
 class FilmActivity : BaseActivity() {
+//    private val ActivityFilmBinding:by viewBinding()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_film)
+
     }
 
     override fun headToolbar(): HeadToolbar {
