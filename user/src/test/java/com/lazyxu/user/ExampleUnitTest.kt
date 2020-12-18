@@ -1,9 +1,6 @@
 package com.lazyxu.user
 
-import android.net.Uri
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -13,6 +10,12 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
+        val intPlus: Int.(Int) -> Int= Int::plus
+        println(intPlus.invoke(1, 1))
+        println(intPlus(1, 2))
 
     }
+   
+
 }
+

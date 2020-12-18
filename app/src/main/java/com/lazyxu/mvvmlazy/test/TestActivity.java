@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 
-public class TestActivity  extends AppCompatActivity {
+public abstract class TestActivity  extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,4 +33,5 @@ public class TestActivity  extends AppCompatActivity {
 
         }
     };
+    public void setOnClickListener1(View.OnClickListener l){}
 }
