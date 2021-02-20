@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'android-aspectjx'
+//apply plugin: 'android-aspectjx'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -84,4 +84,5 @@ dependencies {
     //===============  jetpack    ===================
     //================= rx =======================
     api 'com.squareup.okhttp3:logging-interceptor:4.7.2'
+    api 'com.squareup.retrofit2:converter-gson:2.3.0'
 }

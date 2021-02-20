@@ -6,7 +6,7 @@ if (rootProject.ext.isModule) {
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'android-aspectjx'
+//apply plugin: 'android-aspectjx'
 android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdkVersion rootProject.ext.compileSdkVersion

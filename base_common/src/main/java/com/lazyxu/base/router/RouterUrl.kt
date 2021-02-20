@@ -26,7 +26,13 @@ object RouterUrl {
         companion object {
             const val MAINGROUP = "/main/"
             const val FILM = MAINGROUP + "film"
+            const val TEST = MAINGROUP + "test"
         }
     }
-
+    class App {
+        companion object {
+            const val MAINTEST = "/mainfilm/"
+            const val TEST = MAINTEST + "filmtest"
+        }
+    }
 }

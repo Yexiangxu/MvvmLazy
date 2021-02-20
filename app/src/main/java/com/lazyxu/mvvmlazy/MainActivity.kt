@@ -2,6 +2,7 @@ package com.lazyxu.mvvmlazy
 
 import android.graphics.drawable.Animatable
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private var musicFragment: MineFragment? = null
     private var mFragments: MutableList<Fragment> = mutableListOf()
     private var lastIndex = 0
+    var test = null
 
     private var mScreenStatusController: ScreenStatusController? = null
 
@@ -26,10 +28,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initView()
-
-        debug {
-            Log.i("MainActivityTest", "debug")
-        }
+        Handler().postDelayed({
+            if (test == null) {
+                throw Exception("抛出异常")
+                Log.d("TestCrashTag", "正常运行了")
+            }
+        }, 3000)
 
 
     }
@@ -39,10 +43,7 @@ class MainActivity : AppCompatActivity() {
         if (BuildConfig.DEBUG) {
             code()
         }
-
     }
-
-
 
 
     private fun initView() {
@@ -87,6 +88,7 @@ class MainActivity : AppCompatActivity() {
         mScreenStatusController?.stopListen()
         super.onDestroy()
     }
+
     /**
      * 换肤 可根据不同节日等动态设置底部tab
      */
@@ -137,5 +139,6 @@ class MainActivity : AppCompatActivity() {
         } catch (e: IndexOutOfBoundsException) {
         }
     }
+
     private val clickListener = View.OnClickListener { }
 }

@@ -9,9 +9,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="tab1">首页</string>
+    <string name="tab1">首页</string>b
     <string name="tab2">公众号</string>
     <string name="tab3">搜索</string>
     <string name="tab4">项目分类</string>
     <string name="tab5">我</string>
+    <string name="title_notification_bar">%1$s 步</string>
+
 </resources>

@@ -5,8 +5,12 @@ import android.content.Context
 import android.content.IntentFilter
 import android.net.Uri
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import com.alibaba.android.arouter.launcher.ARouter
 import com.lazyxu.base.base.BaseApplication
+import com.lazyxu.base.router.RouterUrl
 import com.lazyxu.base.utils.LogUtils
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.properties.Delegates
@@ -45,6 +49,17 @@ class App : BaseApplication() {
         this.registerReceiver(appStateReceiver, filter)
         Log.d("BootReceiverTag", "注册广播")
 
+//        Handler(Looper.getMainLooper()).post {
+//            //主线程异常拦截
+//            while (true) {
+//                try {
+//                    Looper.loop()//主线程的异常会从这里抛出
+//                } catch (e: Throwable) {
+//                    Log.e("Crash[主线程]：", e.message ?: "")
+////                    CrashReport.postCatchedException(e)
+//                }
+//            }
+//        }
     }
     /**
      * 当应用存在多个进程时，确保只在主进程进行初始化
